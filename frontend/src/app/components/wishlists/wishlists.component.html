@@ -1,0 +1,20 @@
+<body class="bg-gray-400">
+  
+
+<div class=" w-6xl flex justify-center mb-2">
+  <h1 class="text-3xl font-semibold">My Wishlist</h1>
+
+</div>
+
+<div class="flex justify-center gap-5 ">
+    @for (product of products; track $index) {
+    <div class="mt-2">
+    <app-productcard [product]="product"></app-productcard>
+    </div> 
+  }@empty {
+    <h3>No Product in Wishlist</h3>
+  }
+
+</div>
+
+</body>

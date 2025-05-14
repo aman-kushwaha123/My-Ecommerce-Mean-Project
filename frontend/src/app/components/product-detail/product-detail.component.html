@@ -1,0 +1,109 @@
+
+<div class="max-w-7xl mx-auto px-6 py-10">
+    <div class="flex justify-around gap-10">
+       
+      <!-- Product Image Gallery -->
+      <div class="space-y-4">
+        <div class="w-full overflow-auto ">
+          <img [src]="mainimage" alt="Main product image" class="w-full h-full object-cover rounded-lg" />
+        </div>
+        @if(product.images.length>1){
+        <div class="flex justify-around w-full h-full gap-4">
+         @for (url of product.images; track $index) {
+          <div class="mt-4">
+          <img [src]="url" class="rounded-lg border-3 hover:border-blue-600 cursor-pointer" (click)="changeimage(url)"/>
+         </div>
+        }
+      </div>
+      }
+
+       
+      </div>
+
+      <!-- Product Details -->
+      <div>
+        <h1 class="text-3xl font-bold mb-2">{{product.name}}</h1>
+        <p class="text-xl text-green-600 font-semibold mb-4">₹{{product.price.toLocaleString()}}</p>
+        <p class="mb-6">{{product.shortdescription}}</p>
+        <div class="flex items-center justify-start space-x-2 mb-2">
+          <span class="text-gray-500 line-through">₹{{product.price.toLocaleString()}}</span>
+          <span class="text-lg font-semibold text-green-600">₹{{sellingprice.toLocaleString()}}</span>
+          <span class="bg-yellow-400  text-black text-xs font-semibold px-2 py-1 rounded">
+            {{product.discount}}% OFF
+          </span>
+          
+        </div>
+
+        <div class="flex items-center justify-start space-x-2 mb-2 mt-2">
+         
+            <button mat-fab color="warn"  (click)="addtowishlist(product,$event)">
+              @if(isWishlist(product)){
+              <mat-icon >favorite</mat-icon>
+            }@else{
+              <mat-icon>favorite_border</mat-icon>
+            }
+            </button>
+      
+      
+        
+            <div class="flex">
+              <button mat-fab class=" text-white px-4 py-2 rounded  ml-2 mb-2 hover: bg-blue-600 transition duration-200 mt-3" (click)="addtocart(product,$event)">
+                @if(isInCart(product)){
+                  <mat-icon >remove_shopping_cart</mat-icon>
+              }
+              @else{
+                <mat-icon>add_shopping_cart</mat-icon>
+               }
+                
+              </button>
+            </div>
+          <button  mat-flat-button  class="bg-blue-600 text-white px-4 py-2 rounded  ml-2 mb-2 hover:bg-blue-700 transition duration-200" [routerLink]="'/Address/'+product._id">
+            Buy Now
+          </button>
+          
+         
+        </div>
+        <!-- Full Description -->
+        <div class="mt-10">
+          <h2 class="text-xl font-semibold mb-2">Product Description</h2>
+          <p class="text-gray-600">
+            {{product.description}}          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <div class="mt-16">
+      <h2 class="text-2xl font-semibold mb-4">Customer Reviews</h2>
+      <div class="space-y-6">
+        <div class="bg-white p-4 rounded shadow">
+          <p class="font-semibold">⭐️⭐️⭐️⭐️⭐️ - Jane D.</p>
+          <p class="text-gray-600 mt-2">Absolutely love this chair! It looks amazing and feels very sturdy.</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+          <p class="font-semibold">⭐️⭐️⭐️⭐️ - Mike R.</p>
+          <p class="text-gray-600 mt-2">Great value for the price. Comfortable and stylish.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- related section-->
+    
+    <div>
+      <h3 class="mt-4 font-bold text-3xl">Related Products</h3>
+       
+      <div class="flex flex-wrap mt-3 gap-5">
+          @for (item of relatedproducts; track $index) {
+            @if(!(item._id==product._id)){
+              <div class="w-2xs shadow-black shadow-xl ">
+              <app-productcard [product]="item" ></app-productcard>
+            </div>
+          
+           
+            }
+           
+        }
+      
+      </div>
+   </div>

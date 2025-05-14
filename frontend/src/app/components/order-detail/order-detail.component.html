@@ -1,0 +1,91 @@
+
+
+  
+  <div class="max-w-5xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-4 ">Order :#{{order._id}}</h1>
+
+    <!-- Customer & Shipping Info -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-lg shadow-xl">
+      <div>
+        <h2 class="text-2xl font-semibold mb-2">Customer Info</h2>
+        <p><span class="font-medium text-">Name : </span >{{getname().name}}</p>
+        <p><span class="font-medium text-xl">Email : </span>{{getname().email}}</p>
+        <p><span class="font-medium text-xl">Date of Order : </span>{{order.date | date:'dd-MMM-yyyy'}}</p>
+      </div>
+      <div>
+        <h2 class="text-xl font-semibold mb-2">Shipping Address</h2>
+      </div>
+      <div>
+        <h2 class="text-xl font-semibold mb-2">Your Address</h2>
+        <p  class="">{{order.Address}}</p>
+      </div>
+    </div>
+
+    <!-- Order Summary -->
+    <div class="mt-6 bg-white p-6 rounded-lg shadow-xl">
+      <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b text-2xl">
+              <th class="p-2 font-medium">Product</th>
+              @if(qty){
+              <th class="p-2 font-medium">Qty</th>
+              }
+              <th class="p-2 font-medium">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of order.items; track $index) {
+             @if(item.product){
+            <tr class="border-b te">
+              <td class="p-2" >{{item.product.name}}</td>
+              <td class="p-2" >{{item.quantity}}</td>
+              <td class="p-2 text-green-600" >₹{{item.product.price.toLocaleString()}}</td>
+              <br>
+            </tr>
+          }
+          @else {
+            <tr class="border-b te">
+              <td class="p-2" >{{item.name}}</td>
+              <td class="p-2 text-green-600" >₹{{item.price.toLocaleString()}}</td>
+              <br>
+            </tr>
+
+          }
+        }
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Total -->
+      <div class="flex justify-end mt-4 ">
+        <div class="text-right">
+          <p class="text-lg font-medium">Subtotal: ₹{{order.total}}</p>
+          <p class="text-lg font-medium">Shipping: ₹{{order.shippingcharge.toLocaleString()}}</p>
+          <p class="text-lg font-medium">Delivery Charges: ₹{{order.deliverycharge.toLocaleString()}}</p>
+          <p class="text-2xl font-bold ">Total: <span class="text-green-600  ">₹{{gettotal().toLocaleString()}}</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Info -->
+    <div class="mt-6 bg-white p-6 rounded-lg shadow-xl flex justify-between items-center ">
+      <div>
+        <h2 class="text-xl font-semibold mb-2">Payment</h2>
+        <p><span class="font-medium">Mode:</span> {{order.paymentmode}}</p>
+        <p><span class="font-medium">Status:</span> <span class="text-green-600 font-semibold"></span></p>
+      </div>
+      <div>
+        <h2 class="text-xl font-semibold mb-2">Order Status</h2>
+        <p class="px-4 py-1 bg-yellow-100 text-yellow-700 inline-block rounded-full">{{order.status}}</p>
+      </div>
+    </div>
+    <div class="mt-5 flex justify-center w">
+        <h1 class="text-3xl font-bold">Thanks For Ordering</h1>
+    </div>
+ </div>
+
+
+
+ 

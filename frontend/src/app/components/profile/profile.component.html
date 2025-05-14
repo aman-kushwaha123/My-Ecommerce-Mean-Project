@@ -1,0 +1,17 @@
+<div class="max-w-sm mx-auto bg-white shadow-md rounded-lg overflow-hidden mt-10">
+  <div class="flex items-center justify-center p-6 bg-gray-100">
+      <h1 class="text-2xl font-semibold">Profile</h1>
+  </div>
+  <div class="p-6 text-center">
+     Name :<input class="text-xl font-semibold text-gray-800" [(ngModel)]="name" >
+    <p class="text-xl text-black-600 mt-1">email : {{user.email}}</p>
+    <div class="mt-4">
+      <button class="px-4 py-2 bg-indigo-600 text-white text-sm rounded hover:bg-indigo-700 transition" (click)="updatename()">
+        Edit Profile
+      </button>
+      <button class="px-4 py-2 ml-2 bg-gray-200 text-sm text-gray-700 rounded hover:bg-gray-300 transition">
+        Logout
+      </button>
+    </div>
+  </div>
+</div>

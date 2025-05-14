@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>eCommerce Header</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Header with Sky Blue Background and Black Border -->
+  <header class="border border-black bg-blue-500">
+    
+    <!-- Top Section -->
+    <div class="flex items-center justify-between px-6 py-4">
+      
+      <!-- Logo -->
+      <div class="text-2xl font-bold text-black-600 cursor-pointer" [routerLink]="''">
+        <a  class="flex items-center gap-2 ">
+          🛍️ <span >AK'S SHOP</span>
+        </a>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="flex-1 mx-6 max-w-2xl">
+        <div class="flex">
+          <input
+            type="text"
+            placeholder="Search for products..."
+            class="w-full px-4 py-2 border bg-white border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-black"
+            [(ngModel)]="searchterm"
+            (keyup.enter)="onsearch($event)"
+          />
+        </div>
+      </div>
+
+      <!-- User Links -->
+      <nav class="flex items-center space-x-6 text-lg font-semibold">
+        @if(authService.isAdmin()){
+        <a  class="text-black hover:underline cursor-pointer" routerLink="/profile">{{authService.name}}</a>
+        <a  class="text-black hover:underline cursor-pointer" [routerLink]="'/admin'">Admin</a>
+        }
+        @else{
+        <a  class="text-black hover:underline cursor-pointer" routerLink="/profile">{{authService.name}}</a>
+
+        
+        }
+
+         <!-- User Links -->
+        
+        @if(authService.isLoggedIn()){
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>more_vert</mat-icon>
+          </button>
+         <mat-menu #menu="matMenu" class=" bg-amber-700 p-2">
+            <button mat-menu-item >
+               <p  class="text-black text-2xl hover:underline cursor-pointer" [routerLink]="'/wishlists'"><mat-icon class="bg-red-600" >favorite</mat-icon>Wishlist</p>
+          </button>
+            <button mat-menu-item>
+                   <p  class="text-black text-2xl hover:underline cursor-pointer" [routerLink]="'/order'">Orders</p>
+           </button>
+          <button mat-menu-item >
+            <p  class="text-black text-2xl hover:underline cursor-pointer" [routerLink]="'/cart'"><mat-icon>shopping_cart</mat-icon>Cart</p>
+ 
+          </button>
+         <button mat-menu-item>
+              <a class="text-black text-2xl mr-4 hover:underline cursor-pointer " (click)="logout()">Logout</a>
+          </button>
+       </mat-menu>
+        
+         }
+        @else{
+           
+           <a routerLink="/login" class="text-black hover:underline cursor-pointer">Log in</a>
+          
+        }
+
+        
+      </nav>
+   </div>
+
+    <!-- Text-Based Categories Row -->
+    @if(authService.isLoggedIn()){
+      <nav class="bg-blue-500 border-t border-b ">
+        <div class="max-w-7xl  px-4 py-3 overflow-x-auto ">
+         <ul class="flex space-x-8 text-sm text-gray-700 font-medium">
+            @for (Categories of categoryList; track $index) {
+               <li (click)="searchcategory(Categories._id!)"class=" shadow hover:scale-125 duration-300 "><a class="text-black text-xl hover:underline text-Black-600 cursor-pointer">{{Categories.name}}</a></li>
+            }
+            
+  
+          </ul>
+        </div>
+      </nav>
+
+      <div class="flex w-full bg-blue-400">
+         <p class="text-2xl font-bold"><mat-icon>location_on</mat-icon>Address : {{Address}}
+      </div>
+    }
+    @else{
+        <h1 class="text-2xl">No Categories</h1>
+    }
+  </header>
+
+</body>
+</html>
+   

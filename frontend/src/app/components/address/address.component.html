@@ -1,0 +1,47 @@
+
+<body class="bg-gray-400">
+<div class="flex justify-center items-center min-h-screen bg-gray-100 p-4">
+    
+    
+    <form  action=""  class="bg-white p-8 rounded drop-shadow-2xl drop-shadow-black-500 border-2 w-full max-w-md " [formGroup]="AddressForm" >
+      <h2 class="text-2xl font-bold mb-6 text-center">Enter Valid Address</h2>
+      
+       @if(checkout()){
+          <mat-form-field>
+              <mat-label>Select Address</mat-label>
+                <mat-select  formControlName="Address">
+                <mat-option *ngFor="let address of addressService.Address" [value]="address.Address">
+                {{address.Address}}
+                </mat-option>
+                </mat-select>
+           </mat-form-field>
+           <br><br>
+            <label class="example-margin">Select Payment Mode</label>
+             <mat-radio-group formControlName="PaymentMode" >
+                <mat-radio-button  value="Cash">Cash</mat-radio-button>
+                <mat-radio-button  value="Card">Card</mat-radio-button>
+            </mat-radio-group>
+          
+
+     }@else{
+      <mat-form-field class="w-full ">
+         <textarea matInput placeholder="Textarea" name="textarea" formControlName="Address"></textarea>
+      </mat-form-field>
+      
+    }
+    
+     
+     @if(checkout()){
+      <div class="flex justify-center ">
+        <button mat-raised-button (click)="addorder()" [routerLink]="'/order'" >Register</button>
+      </div>
+    }@else{
+      <div class="flex justify-center ">
+        <button mat-raised-button   (click)="addAdd()" [routerLink]="''" >Register</button>
+      </div>
+
+    }
+      
+    </form>
+  </div>
+   
