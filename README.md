@@ -41,3 +41,50 @@ Database	MongoDB (with Mongoose)
 Auth	JWT, Bcrypt
 UI	Angular Material / Bootstrap
 File Upload (optional)	Multer (backend)
+
+
+<h1>Screenshots</h1>
+<table>
+<tr>
+   <td style="border: 1px solid; padding:10px; text-align:center;">
+     <img src="Home.jpeg"  width="300"/>
+     <p><b>Home Page</b></p>
+   </td>
+  <td style="border: 1px solid; padding:10px; text-align:center;">
+     <img src="Login.jpeg"  widht="300" />
+     <p><b>Login Page</b></p>
+   </td>
+  <td style="border: 1px solid; padding:10px; text-align:center;">
+     <img src="My order.jpeg" width="300"/>
+     <p><b>MyOrder Page</b></p>
+   </td>
+  <td style="border: 1px solid; padding:10px; text-align:center;">
+     <img src="OrderDetail.jpeg" width="300"/>
+     <p><b>OrderDetail Page</b></p>
+   </td>
+  <td style="border: 1px solid; padding:10px; text-align:center;">
+    <img src="SignUp.jpeg" width="300"/>
+     <p><b>SignUp Page</b></p>
+   </td>
+   <td style="border: 1px solid; padding:10px; text-align:center;">
+    <img src="Wishlists.jpeg" width="300"/>
+     <p><b>Wishlists Page</b></p>
+   </td>
+   <td style="border: 1px solid; padding:10px; text-align:center;">
+    <img src="Your Cart.jpeg" width="300"/>
+     <p><b>YourCart Page</b></p>
+   </td>
+</tr>
+
+  
+</table>
+
+
+
+
+
+
+
+
+
+
