@@ -44,40 +44,44 @@ File Upload (optional)	Multer (backend)
 
 
 <h1>Screenshots</h1>
+
 <table>
 <tr>
    <td style="border: 1px solid; padding:10px; text-align:center;">
-     <img src="Screenshots/Home.jpeg"  width="300"/>
+     <img src="Screenshots/Home.jpeg"  width="300" height="300"/>
      <p><b>Home Page</b></p>
    </td>
   <td style="border: 1px solid; padding:10px; text-align:center;">
-     <img src="Screenshots/Login.jpeg"  widht="300" />
+     <img src="Screenshots/Login.jpeg"  widht="300"  height="300" />
      <p><b>Login Page</b></p>
    </td>
   <td style="border: 1px solid; padding:10px; text-align:center;">
-     <img src="Screenshots/My order.jpeg" width="300"/>
+     <img src="Screenshots/My order.jpeg" width="300" height="300"/>
      <p><b>MyOrder Page</b></p>
    </td>
   <td style="border: 1px solid; padding:10px; text-align:center;">
-     <img src="Screenshots/OrderDetail.jpeg" width="300"/>
+     <img src="Screenshots/OrderDetail.jpeg" width="300" height="300"/>
      <p><b>OrderDetail Page</b></p>
    </td>
+</tr>
+   <tr>
   <td style="border: 1px solid; padding:10px; text-align:center;">
-    <img src="Screenshots/SignUp.jpeg" width="300"/>
+    <img src="Screenshots/SignUp.jpeg" width="300" height="300"/>
      <p><b>SignUp Page</b></p>
    </td>
    <td style="border: 1px solid; padding:10px; text-align:center;">
-    <img src="Screenshots/Wishlists.jpeg" width="300"/>
+    <img src="Screenshots/Wishlists.jpeg" width="300" height="300"/>
      <p><b>Wishlists Page</b></p>
    </td>
    <td style="border: 1px solid; padding:10px; text-align:center;">
-    <img src="Screenshots/Your Cart.jpeg" width="300"/>
+    <img src="Screenshots/Your Cart.jpeg" width="300" height="300"/>
      <p><b>YourCart Page</b></p>
    </td>
-</tr>
-
+   </tr>
   
+
 </table>
+
 
 
 
